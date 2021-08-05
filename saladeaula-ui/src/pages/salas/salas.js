@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, {Component} from 'react'
 
 import api from '../../services/api'
@@ -6,13 +7,19 @@ export default class Salas extends Component{
     constructor(props){
         super(props)
         this.state = {
-            salas: []
+            salas: [],
+
+            Sala: {
+                nomeSala: '',
+                metragem: '',
+                andar: ''
+            }
         }
     }
 
     buscarSalas = () => {
         // Pode necessitar Header
-        api.get('/salas')
+        api.get('/sala')
 
         .then(resposta => {
             if (resposta.status === 200) {
@@ -29,13 +36,37 @@ export default class Salas extends Component{
     }
 
     componentDidMount(){
-        this.buscarSalas
+        this.buscarSalas();
     }
+
+    cadastrarSala = (event) => {
+        event.preventDefault();
+
+        let sala = {
+            nomeSala : this.state.Sala.nomeSala,
+            metragem : this.state.Sala.metragem,
+            andar : this.state.Sala.andar
+        }
+
+        api.post('/sala', sala)
+
+        .then(resposta => {
+            if(resposta.status === 201){
+                console.log('Sala cadastrada!')
+            }
+        })
+
+        .catch(erro => {
+            console.log(erro)
+        })
+
+        .then(this.buscarSalas)
+    };
 
     render() {
         return (
             <>
-
+                
             </>
         )
     }

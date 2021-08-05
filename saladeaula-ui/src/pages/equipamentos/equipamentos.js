@@ -6,7 +6,17 @@ export default class Equipamentos extends Component {
     constructor(props){
         super(props)
         this.state = {
-            equipamentos: []
+            equipamentos: [],
+
+            Equipamento: {
+                nomeEquipamento: '',
+                tipoEquipamento: '',
+                marca: '',
+                numeroDeSerie: '',
+                descricao: '',
+                numeroPatrimonio: '',
+                estado: ''
+            }
         }
     }
 
@@ -32,9 +42,38 @@ export default class Equipamentos extends Component {
         this.buscarEquipamentos();
     }
 
+    cadastrarEquipamento = (event) => {
+        event.preventDefault();
+
+        let equipamento = {
+            nomeEquipamento : this.state.Equipamento.nomeEquipamento,
+            tipoEquipamento : this.state.Equipamento.tipoEquipamento,
+            marca : this.state.Equipamento.marca,
+            numeroDeSerie : this.state.Equipamento.numeroDeSerie,
+            descricao : this.state.Equipamento.descricao,
+            numeroPatrimonio : this.state.Equipamento.numeroPatrimonio,
+            estado : this.state.Equipamento.estado
+        }
+
+        api.post('/equipamentos', equipamento)
+
+        .then(resposta => {
+            if (resposta.status === 201) {
+                console.log('Equipamento cadastrado!')
+            }
+        })
+
+        .catch(erro => {
+            console.log(erro)
+        })
+
+        .then(this.buscarEquipamentos)
+    }
+
     render(){
         return(
             <>
+                
             </>
         )
     }

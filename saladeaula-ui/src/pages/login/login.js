@@ -23,11 +23,13 @@ export default class Login extends Component {
             email: this.state.Usuario.email,
             senha: this.state.Usuario.senha
         })
-        .then(response => {
-            if (response.status === 200){
+        .then(resposta => {
+            if (resposta.status === 200){
                 this.setState({isLoading: false})
 
-                localStorage.setItem("jwt", response.data.token)
+                localStorage.setItem("jwt", resposta.data.token)
+
+                console.log('Token: ' + resposta.data.token)
 
                 // Redirects aqui
             }
