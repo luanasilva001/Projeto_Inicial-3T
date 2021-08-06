@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+#content{
+    width: 50%;
+    height: 100vh;
+    background-color: #1446A0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#content h2{
+    color: #FFFFFF;
+    font-family: "Ubuntu";
+    max-width: 70%;
+    font-size: 2em;
+}
+
+#signin{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    
+}
+
+#form-signin h1{
+    margin-bottom: 30px;
+}
+
+#form-signin input{
+    margin-bottom: 30px;
+}
+
+#form-signin{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+#signin h1{
+    color: #1446A0;
+    font-size: 1.5em;
+    font-family: "Ubuntu";
+}
+
+#linha{
+    width: 6em;
+    display: flex;
+    height: 1px;
+    background-color: #F5D547;
+    margin-bottom: 1em;
+}
+
+
+#logo-signin{
+    width: 3.5em;
+    height: 3.5em;
+}
+
+#form-sign-in{
+    width: 16em;
+    font-size: 20px;
+    text-align: center;
+    background-color: #1446A0;
+    color: #FFFFFF;
+    border-radius: 10px;
+    height: 2em;
+}
+
+#btn-signin{
+    cursor: pointer;
+    font-size: 20px;
+    background-color: #F5D547;
+    color: #000000;
+    height: 2.5em;
+    border-radius: 10px;
+}
+
+#signin h4{
+    font-size: 14px;
+    font-family: "Ubuntu";
+    color:#1446A0;
+    padding-left: 100px;
+
+}
+
+#signin a{
+    color:#F5D547
+}
+
+#signin h2{
+    font-family: "Ubuntu";
+    color: #1446A0;
+    text-decoration: none;
+}
+
+#signin h2 span{
+    color: #F5D547;
+}

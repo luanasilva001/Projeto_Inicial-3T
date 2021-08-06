@@ -1,12 +1,13 @@
 import logo from './logo.svg';
-import './App.css';
+import './styles/login.css'
 import React, {Component} from 'react';
+import Login from './pages/login/login'
 import Chart from './components/chart';
 
 function App() {
   return (
     <div className="App">
-      <Chart/>
+      <Login/>
     </div>
   );
 }

@@ -21,7 +21,11 @@ export default class Equipamentos extends Component {
     }
 
     buscarEquipamentos = () => {
-        api.get('/equipamentos')
+        api.get('/equipamentos', {
+            headers: {
+                'Authorization' : 'Bearer ' + localStorage.getItem('jwt')
+            }
+        })
 
         .then(resposta => {
             if (resposta.status === 200) {
@@ -34,8 +38,13 @@ export default class Equipamentos extends Component {
         .catch(erro => console.log(erro));
     }
 
-    atualizarCampos = (campo) => {
-        this.setState({ [campo.target.name] : campo.target.value })
+    atualizarState = (campo) => {
+        this.setState(prevState => ({
+            Equipamento: {
+                ...prevState.Equipamento,
+                [campo.target.name] : campo.target.value
+            }
+        }))
     }
 
     componentDidMount(){
@@ -55,7 +64,11 @@ export default class Equipamentos extends Component {
             estado : this.state.Equipamento.estado
         }
 
-        api.post('/equipamentos', equipamento)
+        api.post('/equipamentos', equipamento, {
+            headers: {
+                'Authorization' : 'Bearer ' + localStorage.getItem('jwt')
+            }
+        })
 
         .then(resposta => {
             if (resposta.status === 201) {
@@ -74,6 +87,102 @@ export default class Equipamentos extends Component {
         return(
             <>
                 
+                <main>
+                    <section>
+                        <h2>A</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>nomeEquipamento</th>
+                                    <th>tipoEquipamento</th>
+                                    <th>marca</th>
+                                    <th>numeroDeSerie</th>
+                                    <th>descricao</th>
+                                    <th>numeroPatrimonio</th>
+                                    <th>estado</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {
+                                    this.state.equipamentos.map(
+                                        (equipamento) => {
+                                            return (
+                                                <tr key={equipamento.idEquipamento}>
+                                                    <td>{equipamento.nomeEquipamento}</td>
+                                                    <td>{equipamento.tipoEquipamento}</td>
+                                                    <td>{equipamento.marca}</td>
+                                                    <td>{equipamento.numeroDeSerie}</td>
+                                                    <td>{equipamento.descricao}</td>
+                                                    <td>{equipamento.numeroPatrimonio}</td>
+                                                    <td>{equipamento.estado}</td>
+                                                </tr>
+                                            )
+                                        }
+                                    )
+                                }
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>B</h2>
+                        <form onSubmit={this.cadastrarEquipamento}>
+                            <div>
+                                <input
+                                    type="text"
+                                    name="nomeEquipamento"
+                                    value={this.state.Equipamento.nomeEquipamento}
+                                    onChange={this.atualizarState}
+                                    placeholder="nome"
+                                />
+                                <input
+                                    type="text"
+                                    name="tipoEquipamento"
+                                    value={this.state.Equipamento.tipoEquipamento}
+                                    onChange={this.atualizarState}
+                                    placeholder="tipo"
+                                />
+                                <input
+                                    type="text"
+                                    name="marca"
+                                    value={this.state.Equipamento.marca}
+                                    onChange={this.atualizarState}
+                                    placeholder="marca"
+                                />
+                                <input
+                                    type="text"
+                                    name="numeroDeSerie"
+                                    value={this.state.Equipamento.numeroDeSerie}
+                                    onChange={this.atualizarState}
+                                    placeholder="numeroSerie"
+                                />
+                                <input
+                                    type="text"
+                                    name="descricao"
+                                    value={this.state.Equipamento.descricao}
+                                    onChange={this.atualizarState}
+                                    placeholder="descricao"
+                                />
+                                <input
+                                    type="text"
+                                    name="numeroPatrimonio"
+                                    value={this.state.Equipamento.numeroPatrimonio}
+                                    onChange={this.atualizarState}
+                                    placeholder="patrimonio"
+                                />
+                                <input
+                                    type="text"
+                                    name="estado"
+                                    value={this.state.Equipamento.estado}
+                                    onChange={this.atualizarState}
+                                    placeholder="estado"
+                                />
+                                <button type="submit"/>
+                            </div>
+                        </form>
+                    </section>
+                </main>
             </>
         )
     }
