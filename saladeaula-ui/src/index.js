@@ -8,6 +8,7 @@ import App from './App';
 import Login from './pages/login/login';
 import Equipamentos from './pages/equipamentos/equipamentos'
 import Salas from './pages/salas/salas'
+import Cadastro from './pages/cadastro/cadastro'
 
 import {usuarioAutenticado, parseJwt} from "./services/auth.js";
 
@@ -17,6 +18,7 @@ const routing = (
       <Route exact path="/" component={Login} />
       <Route exact path="/equipamentos" component={Equipamentos} />
       <Route exact path="/salas" component={Salas} />
+      <Route exact path="/cadastro" component={Cadastro} />
     </Switch>
   </Router>
 )
