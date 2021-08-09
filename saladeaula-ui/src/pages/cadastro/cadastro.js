@@ -59,7 +59,7 @@ export default class Login extends Component {
     render() {
         return (
             <>
-                <main>
+                <main id="main-signup">
                     <section id="content">
                         <h2>
                             Entre no senerth e tenha acesso as suas salas e  equipamentos cadastrados.
@@ -68,8 +68,8 @@ export default class Login extends Component {
                     <section id="signup">
                         <h1>Cadastre-se</h1>
                         <div id="linha"></div>
-                        <form onSubmit={this.login}>
-                            <input name="nomeUsuario" type="text" value={this.state.Usuario.nomeUsuario} onChange={this.atualizarState} placeholder="Nome do Usuario" id="form-sign-up" />
+                        <form onSubmit={this.cadastrarUsuario}>
+                            <input name="nomeUsuario" type="text" value={this.state.Usuario.nomeUsuario} onChange={this.atualizarState} placeholder="Nome" id="form-sign-up" />
                             <input name="email" type="email" value={this.state.Usuario.email} onChange={this.atualizarState} placeholder="Email" id="form-sign-up" />
                             <input name="senha" type="password" value={this.state.Usuario.senha} onChange={this.atualizarState} placeholder="Senha" id="form-sign-up" />
                             <button type="submit" id="btn-signup">Cadastro</button>

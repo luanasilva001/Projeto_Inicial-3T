@@ -11,9 +11,10 @@
 main{
     width: 100%;
     height: 100%;
+}
+#main-signup{
     display: flex;
 }
-
 #content{
     width: 50%;
     height: 100vh;
