@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+:root{
+    --background: #1446A0;
+    --font-pop: "Poppins";
+    --white: #FCF7F8;
+    --font-ubu: "Ubuntu"
+}
+
+#logo img{
+    width: 3.5em;
+    height: 3.5em;
+}
+
+#bg-header{
+    background-color:var(--background);
+    width: 100%;
+    height: 140px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#list{
+    width: 30em;
+    display: flex;
+    gap: 1rem;
+}
+
+#list ul{
+    display: flex;
+    list-style-type: none;
+    list-style: none;
+    gap: 1rem;
+}
+
+#list a{
+    text-decoration: none;
+    font-family:var(--font-ubu);
+    color:var(--white) ;
+    gap: 1rem;
+    font-size: 1.2em;
+}
+
+#cadastro-salas{
+    width: 100%;
+    height: 550px;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#form-cad-salas{
+    display: flex;
+    height: 10rem;
+    width: 60%;
+    margin: 0 auto;
+    justify-content: space-between;
+    font-family: var(--font-pop);
+}
+
+#form-1-cad-sala input{
+    border-radius: 15px;
+    width: 15rem;
+    padding: 0.8em;
+    display: flex;
+    flex-direction: column;
+    background-color: #1446A0;
+    text-align: center;
+    margin-bottom: 6.5em;
+    color: #FCF7F8;
+}
+
+#form-2-cad-sala input{
+    border-radius: 15px;
+    width: 15rem;
+    padding: 0.8em;
+    display: flex;
+    flex-direction: column;
+    background-color: #1446A0;
+    margin-bottom: 6.5em;
+    color: #FCF7F8;
+    text-align: center;
+}
+
+#form-2-cad-sala button{
+    text-align: center;
+    background-color: #F5D547;
+    color: black;
+    border-radius: 15px;
+    width: 15rem;
+    padding: 0.8em;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    align-items: center;
+    font-weight: bolder;
+}
+
+#title-cad{
+    color: #1446A0;
+    font-family: var(--font-ubu);
+    position: relative;
+    top: -100px;
+}
+
+#lista-salas{
+    background-color: var(--background);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#lista-salas i{
+    cursor: pointer;
+}
+
+.content-table thead tr{
+    color: #F5D547;
+    font-family: var(--font-ubu);
+    background-color: #FCF7F8;
+}
+
+.content-table{
+    width:750px;
+    min-height: 250px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    background-size: cover;
+    background-color: #FCF7F8;
+    border-radius: 5px;
+}
+
+#pencil-icon{
+    color: #1446A0;
+    position: relative;
+    left: 1em;
+}
+
+#erro-icon{
+    color: #D75353;
+    position: relative;
+    left: 1.5em;
+}
+
+#footer-bg{
+    background-color:var(--background);
+    width: 100%;
+    height: 140px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#footer{
+    border-top: #F5D547 2px solid;
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

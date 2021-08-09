@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+:root{
+    --background: #1446A0;
+    --font-pop: "Poppins";
+    --white: #FCF7F8;
+    --font-ubu: "Ubuntu"
+}
+
+#cadastro-equipamentos{
+    width: 100%;
+    height: 600px;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#title-cad-equip{
+    color: #1446A0;
+    font-family: var(--font-ubu);
+    margin-top: 3rem;
+}
+
+#form-cad-equipamentos{
+    display: flex;
+    height: 100%;
+    width: 60%;
+    margin: 2rem auto;
+    justify-content: space-between;
+    font-family: var(--font-pop);
+}
+
+
+#lista-equipamentos{
+    background-color: var(--background);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

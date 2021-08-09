@@ -27,7 +27,11 @@ export default class Login extends Component {
             senha : this.state.Usuario.senha
         }
 
-        api.post('/usuario')
+        api.post('/usuario', UsuarioCad, {
+            headers: {
+                'Authorization' : 'Bearer ' + localStorage.getItem('jwt')
+            }
+        })
 
         
         .then(resposta => {

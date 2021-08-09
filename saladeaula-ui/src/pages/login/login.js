@@ -38,7 +38,7 @@ export default class Login extends Component {
 
                     console.log(this.props.history)
                     if(parseJwt().role === "1"){
-                        this.props.history.push('/equipamentos')
+                        this.props.history.push('/salas')
                     }
                     else{
                         this.props.history.push('/')
@@ -63,10 +63,10 @@ export default class Login extends Component {
     render() {
         return (
             <>
-                <main>
+                <main id="main-login">
                     <section id="content">
                         <h2>
-                            Entre no senerth e tenha acesso as suas salas e  equipamentos cadastrados.
+                            Entre no senerth e tenha acesso as suas salas e equipamentos cadastrados.
                         </h2>
                     </section>
                     <section id="signin">
