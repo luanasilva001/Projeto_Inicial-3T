@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 import logo from '../images/logo.svg'
 
@@ -9,9 +10,9 @@ export default class Header extends Component {
                 <div className="container">
                     <nav id="list">
                         <ul>
-                            <li><a href="#">Salas</a></li>
-                            <li><a href="#">Equipamentos</a></li>
-                            <li><a href="#">Sair</a></li>
+                            <li><Link to="/salas">Salas</Link></li>
+                            <li><Link to="/equipamentos">Equipamentos</Link></li>
+                            <li><Link to="/">Sair</Link></li>
                         </ul>
                     </nav>
                     <div id="logo">

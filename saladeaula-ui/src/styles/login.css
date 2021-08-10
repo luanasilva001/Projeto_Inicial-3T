@@ -42,7 +42,10 @@ main{
     text-align: center;
     
 }
-
+#form-sign{
+    display: flex;
+    flex-direction: column;
+}
 #form-signin h1{
     margin-bottom: 30px;
 }
@@ -75,6 +78,7 @@ main{
 #logo-signin{
     width: 3.5em;
     height: 3.5em;
+    margin-top: 1.5em;
 }
 
 #form-sign-in{
@@ -85,6 +89,7 @@ main{
     color: #FFFFFF;
     border-radius: 10px;
     height: 2em;
+    margin-bottom: 0.5em;
 }
 
 #btn-signin{
@@ -100,7 +105,6 @@ main{
     font-size: 14px;
     font-family: "Ubuntu";
     color:#1446A0;
-    padding-left: 100px;
 
 }
 

@@ -16,6 +16,8 @@ export default class Equipamentos extends Component {
             equipAlterado : 0,
 
             Equipamento: {
+                dataEntrada: new Date(),
+                sala: '',
                 nomeEquipamento: '',
                 tipoEquipamento: '',
                 marca: '',
@@ -28,7 +30,7 @@ export default class Equipamentos extends Component {
     }
 
     buscarEquipamentos = () => {
-        api.get('/equipamentos', {
+        api.get('/controleequipamento', {
             headers: {
                 'Authorization' : 'Bearer ' + localStorage.getItem('jwt')
             }
@@ -50,13 +52,15 @@ export default class Equipamentos extends Component {
             equipAlterado: equip.idEquipamento,
 
             Equipamento: {
-                nomeEquipamento: equip.nomeEquipamento,
-                tipoEquipamento: equip.tipoEquipamento,
-                marca: equip.marca,
-                numeroDeSerie: equip.numeroDeSerie,
-                descricao: equip.descricao,
-                numeroPatrimonio: equip.numeroPatrimonio,
-                estado: equip.estado
+                dataEntrada: new Date(equip.dataEntrada),
+                sala: equip.idSalaNavigation.nomeSala,
+                nomeEquipamento: equip.idEquipamentoNavigation.nomeEquipamento,
+                tipoEquipamento: equip.idEquipamentoNavigation.tipoEquipamento,
+                marca: equip.idEquipamentoNavigation.marca,
+                numeroDeSerie: equip.idEquipamentoNavigation.numeroDeSerie,
+                descricao: equip.idEquipamentoNavigation.descricao,
+                numeroPatrimonio: equip.idEquipamentoNavigation.numeroPatrimonio,
+                estado: equip.idEquipamentoNavigation.estado
             }
         }, () => {
             console.log(
@@ -162,6 +166,8 @@ export default class Equipamentos extends Component {
         this.setState({
 
             Equipamento: {
+                dataEntrada: '',
+                sala: '',
                 nomeEquipamento: '',
                 tipoEquipamento: '',
                 marca: '',
@@ -246,11 +252,13 @@ export default class Equipamentos extends Component {
                             <thead>
                                 <tr>
                                     <th>Nome</th>
+                                    <th>Sala</th>
                                     <th>Tipo</th>
                                     <th>Marca</th>
                                     <th>Serial</th>
                                     <th>Descrição</th>
                                     <th>Numero de Patrimônio</th>
+                                    <th>Data Entrada</th>
                                     <th>Estado</th>
                                 </tr>
                             </thead>
@@ -259,14 +267,16 @@ export default class Equipamentos extends Component {
                                     this.state.equipamentos.map(
                                         (equipamento) => {
                                             return (
-                                                <tr key={equipamento.idEquipamento} >
-                                                    <th>{equipamento.nomeEquipamento}</th>
-                                                    <th>{equipamento.tipoEquipamento}</th>
-                                                    <th>{equipamento.marca}</th>
-                                                    <th>{equipamento.numeroDeSerie}</th>
-                                                    <th>{equipamento.descricao}</th>
-                                                    <th>{equipamento.numeroPatrimonio}</th>
-                                                    <th>{equipamento.estado}</th>
+                                                <tr key={equipamento.idEquipamentoNavigation.idEquipamento} >
+                                                    <th>{equipamento.idEquipamentoNavigation.nomeEquipamento}</th>
+                                                    <th>{equipamento.idSalaNavigation.nomeSala}</th>
+                                                    <th>{equipamento.idEquipamentoNavigation.tipoEquipamento}</th>
+                                                    <th>{equipamento.idEquipamentoNavigation.marca}</th>
+                                                    <th>{equipamento.idEquipamentoNavigation.numeroDeSerie}</th>
+                                                    <th>{equipamento.idEquipamentoNavigation.descricao}</th>
+                                                    <th>{equipamento.idEquipamentoNavigation.numeroPatrimonio}</th>
+                                                    <th>{Intl.DateTimeFormat("pt-BR").format(new Date(equipamento.dataEntrada))}</th>
+                                                    <th>{equipamento.idEquipamentoNavigation.estado}</th>
                                                     <th><button onClick={() => this.buscarEquipamentoPorId(equipamento)} >
                                                         <FontAwesomeIcon icon={faPenSquare} size="2x"/>
                                                     </button></th>
@@ -287,102 +297,6 @@ export default class Equipamentos extends Component {
                         </table>
                     </section>
                 </main>
-                {/* <main>
-                    <section>
-                        <h2>A</h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>nomeEquipamento</th>
-                                    <th>tipoEquipamento</th>
-                                    <th>marca</th>
-                                    <th>numeroDeSerie</th>
-                                    <th>descricao</th>
-                                    <th>numeroPatrimonio</th>
-                                    <th>estado</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                {
-                                    this.state.equipamentos.map(
-                                        (equipamento) => {
-                                            return (
-                                                <tr key={equipamento.idEquipamento}>
-                                                    <td>{equipamento.nomeEquipamento}</td>
-                                                    <td>{equipamento.tipoEquipamento}</td>
-                                                    <td>{equipamento.marca}</td>
-                                                    <td>{equipamento.numeroDeSerie}</td>
-                                                    <td>{equipamento.descricao}</td>
-                                                    <td>{equipamento.numeroPatrimonio}</td>
-                                                    <td>{equipamento.estado}</td>
-                                                </tr>
-                                            )
-                                        }
-                                    )
-                                }
-                            </tbody>
-                        </table>
-                    </section>
-                    <section>
-                        <h2>B</h2>
-                        <form onSubmit={this.cadastrarEquipamento}>
-                            <div>
-                                <input
-                                    type="text"
-                                    name="nomeEquipamento"
-                                    value={this.state.Equipamento.nomeEquipamento}
-                                    onChange={this.atualizarState}
-                                    placeholder="nome"
-                                />
-                                <input
-                                    type="text"
-                                    name="tipoEquipamento"
-                                    value={this.state.Equipamento.tipoEquipamento}
-                                    onChange={this.atualizarState}
-                                    placeholder="tipo"
-                                />
-                                <input
-                                    type="text"
-                                    name="marca"
-                                    value={this.state.Equipamento.marca}
-                                    onChange={this.atualizarState}
-                                    placeholder="marca"
-                                />
-                                <input
-                                    type="text"
-                                    name="numeroDeSerie"
-                                    value={this.state.Equipamento.numeroDeSerie}
-                                    onChange={this.atualizarState}
-                                    placeholder="numeroSerie"
-                                />
-                                <input
-                                    type="text"
-                                    name="descricao"
-                                    value={this.state.Equipamento.descricao}
-                                    onChange={this.atualizarState}
-                                    placeholder="descricao"
-                                />
-                                <input
-                                    type="text"
-                                    name="numeroPatrimonio"
-                                    value={this.state.Equipamento.numeroPatrimonio}
-                                    onChange={this.atualizarState}
-                                    placeholder="patrimonio"
-                                />
-                                <input
-                                    type="text"
-                                    name="estado"
-                                    value={this.state.Equipamento.estado}
-                                    onChange={this.atualizarState}
-                                    placeholder="estado"
-                                />
-                                <button type="submit"/>
-                            </div>
-                        </form>
-                    </section>
-                </main> */}
                 <Footer />
             </>
         )

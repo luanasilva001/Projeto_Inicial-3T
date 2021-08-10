@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 import logo from '../../images/logo.svg'
 import api from '../../services/api'
@@ -72,11 +73,11 @@ export default class Login extends Component {
                     <section id="signin">
                         <h1>Login</h1>
                         <div id="linha"></div>
-                        <form onSubmit={this.login}>
+                        <form id="form-sign" onSubmit={this.login}>
                             <input name="email" type="email" value={this.state.Usuario.email} onChange={this.atualizarState} placeholder="Email" id="form-sign-in" />
                             <input name="senha" type="password" value={this.state.Usuario.senha} onChange={this.atualizarState} placeholder="Senha" id="form-sign-in" />
                             <button type="submit" id="btn-signin">Entrar</button>
-                            <h4>Não possui conta? <a href="#">cadastre-se</a></h4>
+                            <h4>Não possui conta?<Link to="/cadastro">cadastre-se</Link></h4>
                         </form>
                         <img src={logo} alt="logo" id="logo-signin" />
                         <h2>se<span>nerth</span></h2>

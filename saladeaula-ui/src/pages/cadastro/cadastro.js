@@ -59,23 +59,23 @@ export default class Login extends Component {
     render() {
         return (
             <>
-                <main id="main-signup">
+                <main id="main-login">
                     <section id="content">
                         <h2>
                             Entre no senerth e tenha acesso as suas salas e  equipamentos cadastrados.
                         </h2>
                     </section>
-                    <section id="signup">
+                    <section id="signin">
                         <h1>Cadastre-se</h1>
                         <div id="linha"></div>
-                        <form onSubmit={this.cadastrarUsuario}>
-                            <input name="nomeUsuario" type="text" value={this.state.Usuario.nomeUsuario} onChange={this.atualizarState} placeholder="Nome" id="form-sign-up" />
-                            <input name="email" type="email" value={this.state.Usuario.email} onChange={this.atualizarState} placeholder="Email" id="form-sign-up" />
-                            <input name="senha" type="password" value={this.state.Usuario.senha} onChange={this.atualizarState} placeholder="Senha" id="form-sign-up" />
-                            <button type="submit" id="btn-signup">Cadastro</button>
+                        <form id="form-sign" onSubmit={this.cadastrarUsuario}>
+                            <input name="nomeUsuario" type="text" value={this.state.Usuario.nomeUsuario} onChange={this.atualizarState} placeholder="Nome" id="form-sign-in" />
+                            <input name="email" type="email" value={this.state.Usuario.email} onChange={this.atualizarState} placeholder="Email" id="form-sign-in" />
+                            <input name="senha" type="password" value={this.state.Usuario.senha} onChange={this.atualizarState} placeholder="Senha" id="form-sign-in" />
+                            <button type="submit" id="btn-signin">Cadastro</button>
                             <h4>Possui conta? <a href="#">Entre no Senerth</a></h4>
                         </form>
-                        <img src={logo} alt="logo" id="logo-signup" />
+                        <img src={logo} alt="logo" id="logo-signin" />
                         <h2>se<span>nerth</span></h2>
                     </section>
                 </main>
