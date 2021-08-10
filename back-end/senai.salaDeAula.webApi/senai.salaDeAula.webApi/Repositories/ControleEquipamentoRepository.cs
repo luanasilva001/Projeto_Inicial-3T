@@ -63,6 +63,29 @@ namespace senai.salaDeAula.webApi.Repositories
             ctx.SaveChanges();
         }
 
+        public void TrocarSala(int id, ControleEquipamento status)
+        {
+           ControleEquipamento controleEquipamentoBuscado = ctx.ControleEquipamentos.Find(id);
+
+           if(controleEquipamentoBuscado.IdSala != null)
+           {
+               controleEquipamentoBuscado.IdSala = status.IdSala;
+           }
+            
+            if(controleEquipamentoBuscado.DataEntrada != DateTime.Now)
+            {
+                controleEquipamentoBuscado.DataEntrada = status.DataEntrada;
+            }
+
+            if(controleEquipamentoBuscado.DataSaida != DateTime.Now)
+            {
+                controleEquipamentoBuscado.DataSaida = status.DataSaida;
+            }
+            ctx.Update(controleEquipamentoBuscado);
+
+            ctx.SaveChanges();
+        }
+
         public List<ControleEquipamento> Listar()
         {
             return ctx.ControleEquipamentos.Include(ce => ce.IdEquipamentoNavigation)

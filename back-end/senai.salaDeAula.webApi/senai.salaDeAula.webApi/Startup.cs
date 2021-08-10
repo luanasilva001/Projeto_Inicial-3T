@@ -32,10 +32,8 @@ namespace senai.salaDeAula.webApi
                .AddControllers()
              .AddNewtonsoftJson(options =>
              {
-                 //Ignora os loopings nas consultas
                  options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
 
-                 //Ignora valores nulos ao fazer jun��es nas consultas
                  options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
              });
 

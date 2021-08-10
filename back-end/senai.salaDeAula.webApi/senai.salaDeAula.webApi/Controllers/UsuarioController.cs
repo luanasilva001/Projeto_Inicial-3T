@@ -5,7 +5,7 @@ using senai.salaDeAula.webApi.Domains;
 using senai.salaDeAula.webApi.Interfaces;
 using senai.sp_medicals.webApi.Repositories;
 
-namespace senai.hroads.webApi_.Controllers
+namespace senai.salaDeAula.webApi_.Controllers
 {
     //Define que o tipo de resposta da API será no formato JSON
     [Produces("application/json")]

@@ -17,7 +17,7 @@ namespace senai.salaDeAula.webApi.Controllers
     //Define que é um controlador de API
     [ApiController]
 
-    [Authorize(Roles = "1")]
+    [Authorize(Roles = "1, 2")]
     public class ControleEquipamentoController : ControllerBase
     {
         private IControleEquipamentoRepository _controleEquipamentoRepository { get; set; }
@@ -28,7 +28,7 @@ namespace senai.salaDeAula.webApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetConsultas()
+        public IActionResult GetControleEquipamento()
         {
             try
             {
@@ -90,6 +90,20 @@ namespace senai.salaDeAula.webApi.Controllers
             {
                 _controleEquipamentoRepository.Deletar(id);
 
+                return StatusCode(204);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPatch("equipamento/{id}")]
+        public IActionResult PatchSala(int id, ControleEquipamento status)
+        {
+            try
+            {
+                _controleEquipamentoRepository.TrocarSala(id, status);
                 return StatusCode(204);
             }
             catch (Exception ex)

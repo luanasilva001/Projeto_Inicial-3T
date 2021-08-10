@@ -28,7 +28,7 @@ namespace senai.salaDeAula.webApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetConsultas()
+        public IActionResult GetEquipamentos()
         {
             try
             {

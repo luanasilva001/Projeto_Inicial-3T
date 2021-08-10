@@ -1,4 +1,4 @@
-﻿namespace senai.hroads.webApi_.Domains
+﻿namespace senai.salaDeAula.webApi_.Controllers
 {
     public partial class LoginViewModel
     {

@@ -14,5 +14,7 @@ namespace senai.salaDeAula.webApi.Interfaces
         void AtualizarPorId(int id, ControleEquipamento controleEquipamentoAtualizado);
 
         void Deletar(int id);
+
+        void TrocarSala(int id, ControleEquipamento status);
     }
 }

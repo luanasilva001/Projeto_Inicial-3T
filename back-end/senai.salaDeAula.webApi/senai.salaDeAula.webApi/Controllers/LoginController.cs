@@ -3,12 +3,11 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using senai.hroads.webApi_.Domains;
 using senai.salaDeAula.webApi.Domains;
 using senai.salaDeAula.webApi.Interfaces;
 using senai.sp_medicals.webApi.Repositories;
 
-namespace senai.hroads.webApi_.Controllers
+namespace senai.salaDeAula.webApi_.Controllers
 {
     //Define que o tipo de resposta da API será no formato JSON
     [Produces("application/json")]
